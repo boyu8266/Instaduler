@@ -3,7 +3,7 @@ from tpdp import State
 
 
 class InstaState(State):
-    session_file: str = None
+    session_file: str = 'config/session.json'
     client: Client = None
 
     class Config:

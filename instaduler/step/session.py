@@ -6,7 +6,7 @@ from tpdp import Step
 from instaduler.state import InstaState
 
 
-class GetSession(Step):
+class SetSession(Step):
     def run(self, state: InstaState, pipeline_abort: Callable[[], None] | None = None, **kwargs: Any) -> InstaState:
         client = Client()
         client.load_settings(state.session_file)

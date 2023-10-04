@@ -3,3 +3,5 @@ config/session.json
 # resource
 /images
 /videos
+
+__pycache__
