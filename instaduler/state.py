@@ -1,6 +1,10 @@
+from instagrapi import Client
 from tpdp import State
 
 
 class IState(State):
-    username: str = None
-    password: str = None
+    session_file: str = None
+    client: Client = None
+
+    class Config:
+        arbitrary_types_allowed = True
