@@ -1,2 +1,4 @@
 instagrapi
 Pillow
+tpdp==0.1.0
+pandas
