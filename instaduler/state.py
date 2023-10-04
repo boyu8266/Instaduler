@@ -2,7 +2,7 @@ from instagrapi import Client
 from tpdp import State
 
 
-class IState(State):
+class InstaState(State):
     session_file: str = None
     client: Client = None
 
