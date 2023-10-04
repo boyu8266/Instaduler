@@ -5,9 +5,13 @@ from instagrapi import Client
 
 def login(username, password):
     client = Client()
-    client.login(username=username, password=password)
+    success = client.login(username=username, password=password)
+    if not success:
+        print(f"Login failed: {username}")
+        return
+
     client.dump_settings("config/session.json")
-    print(f"Logging in with user: {username}, password: {password}")
+    print(f"Logging in with user: {username}")
 
 
 def main():
