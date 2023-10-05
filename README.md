@@ -12,17 +12,18 @@ A scheduling script that integrates with Instagrapi, using JSON file as a simple
 
 ## Commands
 ```
-usage: __main__.py [-h] {login,post} ...
+usage: __main__.py [-h] {login,post,run} ...
 
 Login and Post operations
 
 positional arguments:
-  {login,post}  Action to perform
-    login       Perform login operation
-    post        Perform post operation
+  {login,post,run}  Action to perform
+    login           Perform login operation
+    post            Perform post operation
+    run             Run Schedule Post
 
 options:
-  -h, --help    show this help message and exit
+  -h, --help        show this help message and exit
 ```
 
 
