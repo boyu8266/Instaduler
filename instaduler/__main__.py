@@ -46,6 +46,13 @@ def post(folder, text):
         print(f"An exception occurred while saving the JSON file.")
 
 
+def run():
+    try:
+        postlist = PostList.parse_file(SCHEDULE_FILE)
+    except:
+        print(f"Please set up the schedule through 'post' first.")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Login and Post operations")
     subparsers = parser.add_subparsers(dest="action", help="Action to perform")
@@ -63,12 +70,17 @@ def main():
     post_parser.add_argument(
         "--text", "-t", required=True,  help="Specify the caption for the post")
 
+    run_parser = subparsers.add_parser(
+        "run", help="Run Schedule Post")
+
     args = parser.parse_args()
 
     if args.action == "login":
         login(args.user, args.psw)
     elif args.action == "post":
         post(args.folder, args.text)
+    elif args.action == "run":
+        run()
     else:
         parser.print_help()
 
