@@ -9,11 +9,13 @@ class InstaPipeline:
     def __init__(self) -> None:
         set_session = SetSession('set session')
         exif_orientation = ExifOrientation('exif orientation')
+        post_album = PostAlbum('post album')
         update_schedule = UpdateSchedule('update schedule')
 
         self.steps = [
             set_session,
             exif_orientation,
+            post_album,
             update_schedule
         ]
 

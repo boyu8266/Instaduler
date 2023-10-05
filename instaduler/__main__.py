@@ -6,6 +6,7 @@ import os
 from const import *
 from instagrapi import Client
 from model import Post, PostList
+from pipeline import InstaPipeline
 
 
 def login(username, password):
@@ -49,8 +50,13 @@ def post(folder, text):
 def run():
     try:
         postlist = PostList.parse_file(SCHEDULE_FILE)
+        post = postlist.posts[0]
     except:
         print(f"Please set up the schedule through 'post' first.")
+        return
+
+    pipeline = InstaPipeline()
+    pipeline.run(post)
 
 
 def main():
