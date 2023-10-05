@@ -1,4 +1,5 @@
 import argparse
+import os
 
 from instagrapi import Client
 
@@ -14,11 +15,18 @@ def login(username, password):
     print(f"Logging in with user: {username}")
 
 
+def post(folder, text):
+    if not os.path.exists(folder):
+        print(f"Error: Folder '{folder}' does not exist.")
+        return
+
+    print(f"folder: {folder}, text: {text}")
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Login operations")
+    parser = argparse.ArgumentParser(description="Login and Post operations")
     subparsers = parser.add_subparsers(dest="action", help="Action to perform")
 
-    # Subcommand: login
     login_parser = subparsers.add_parser(
         "login", help="Perform login operation")
     login_parser.add_argument(
@@ -26,10 +34,18 @@ def main():
     login_parser.add_argument(
         "-p", "--psw", required=True, help="Specify the password")
 
+    post_parser = subparsers.add_parser("post", help="Perform post operation")
+    post_parser.add_argument(
+        "--folder", "-f", required=True,  help="Specify the folder containing media to post")
+    post_parser.add_argument(
+        "--text", "-t", required=True,  help="Specify the caption for the post")
+
     args = parser.parse_args()
 
     if args.action == "login":
         login(args.user, args.psw)
+    elif args.action == "post":
+        post(args.folder, args.text)
     else:
         parser.print_help()
 
