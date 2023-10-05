@@ -1,5 +1,5 @@
 # Instaduler CLI
-A scheduling script that integrates with Instagrapi, using JSON file as a simple database for pending posts.
+A script that integrates with Instagrapi, using JSON file as a simple database for pending posts.
 - [Instaduler CLI](#instaduler-cli)
   - [Commands](#commands)
   - [How to](#how-to)
