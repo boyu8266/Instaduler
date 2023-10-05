@@ -44,7 +44,7 @@ options:
 3. Run `instaduler post --folder=xxx --text=xxx`.
 
 ## Todo
-| Item          | Status | Open       | Close |
-|---------------|--------|------------|-------|
-| Support Album | Doing  | 2023/10/05 |       |
-| Support Reels | Todo   | 2023/10/05 |       |
+| Item          | Status | Open       | Close      |
+|---------------|--------|------------|------------|
+| Support Album | Doing  | 2023/10/05 | 2023/10/05 |
+| Support Reels | Todo   | 2023/10/05 |            |
