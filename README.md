@@ -46,5 +46,5 @@ options:
 ## Todo
 | Item          | Status | Open       | Close      |
 |---------------|--------|------------|------------|
-| Support Album | Doing  | 2023/10/05 | 2023/10/05 |
+| Support Album | Done   | 2023/10/05 | 2023/10/05 |
 | Support Reels | Todo   | 2023/10/05 |            |
