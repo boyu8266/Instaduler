@@ -9,10 +9,12 @@ class InstaPipeline:
     def __init__(self) -> None:
         set_session = SetSession('set session')
         exif_orientation = ExifOrientation('exif orientation')
+        update_schedule = UpdateSchedule('update schedule')
 
         self.steps = [
             set_session,
-            exif_orientation
+            exif_orientation,
+            update_schedule
         ]
 
         self.pipeline = Pipeline(__name__)
