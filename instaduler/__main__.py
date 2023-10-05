@@ -3,10 +3,11 @@ import glob
 import json
 import os
 
-from const import *
 from instagrapi import Client
-from model import Post, PostList
-from pipeline import InstaPipeline
+
+from instaduler.const import *
+from instaduler.model import Post, PostList
+from instaduler.pipeline import InstaPipeline
 
 
 def login(username, password):
