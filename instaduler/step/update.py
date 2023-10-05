@@ -1,10 +1,11 @@
 import json
 from typing import Any, Callable
 
-from const import *
-from model import PostList
-from state import InstaState
 from tpdp import Step
+
+from instaduler.const import *
+from instaduler.model import PostList
+from instaduler.state import InstaState
 
 
 class UpdateSchedule(Step):

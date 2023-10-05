@@ -1,7 +1,8 @@
-from model import Post
-from state import InstaState
-from step import *
 from tpdp import Pipeline
+
+from instaduler.model import Post
+from instaduler.state import InstaState
+from instaduler.step import *
 
 
 class InstaPipeline:

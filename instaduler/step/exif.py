@@ -2,8 +2,9 @@ import contextlib
 from typing import Any, Callable
 
 from PIL import Image
-from state import InstaState
 from tpdp import Step
+
+from instaduler.state import InstaState
 
 
 class ExifOrientation(Step):
