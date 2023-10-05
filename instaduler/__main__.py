@@ -6,7 +6,6 @@ import os
 from instagrapi import Client
 from model import Post, PostList
 
-file_types = ["jpg", "jpeg", "mp4"]
 schedule_file = 'config/schedule.json'
 session_file = 'config/session.json'
 
