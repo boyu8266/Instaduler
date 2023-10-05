@@ -6,6 +6,7 @@ A scheduling script that integrates with Instagrapi, using JSON file as a simple
     - [Install](#install)
     - [Login](#login)
     - [Schedule](#schedule)
+  - [Todo](#todo)
 
 
 
@@ -41,3 +42,8 @@ options:
 2. Activate a virtual environment (if available).
 3. Run `instaduler post --folder=xxx --text=xxx`.
 
+## Todo
+| Item          | Status | Open       | Close |
+|---------------|--------|------------|-------|
+| Support Album | Doing  | 2023/10/05 |       |
+| Support Reels | Todo   | 2023/10/05 |       |
