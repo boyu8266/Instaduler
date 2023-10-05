@@ -1,7 +1,13 @@
 import argparse
+import glob
+import json
 import os
 
 from instagrapi import Client
+from model import Post, PostList
+
+file_types = ["jpg", "jpeg", "mp4"]
+schedule_file = 'config/schedule.json'
 
 
 def login(username, password):
@@ -20,7 +26,26 @@ def post(folder, text):
         print(f"Error: Folder '{folder}' does not exist.")
         return
 
-    print(f"folder: {folder}, text: {text}")
+    files = glob.glob(os.path.join(folder, "*.jpg")) + \
+        glob.glob(os.path.join(folder, "*.jpeg")) + \
+        glob.glob(os.path.join(folder, "*.mp4"))
+    post = Post(files=files, caption=text)
+
+    try:
+        postlist = PostList.parse_file(schedule_file)
+    except:
+        postlist = PostList()
+
+    try:
+        if not isinstance(postlist.posts, list):
+            postlist.posts = []
+
+        postlist.posts.append(post)
+        with open(schedule_file, 'w', encoding='utf-8') as file:
+            json.dump(postlist.dict(), file, ensure_ascii=False, indent=4)
+        print(f"Post from folder: {folder}, with caption: {text}")
+    except:
+        print(f"An exception occurred while saving the JSON file.")
 
 
 def main():
