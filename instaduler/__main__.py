@@ -8,6 +8,7 @@ from model import Post, PostList
 
 file_types = ["jpg", "jpeg", "mp4"]
 schedule_file = 'config/schedule.json'
+session_file = 'config/session.json'
 
 
 def login(username, password):
@@ -17,7 +18,7 @@ def login(username, password):
         print(f"Login failed: {username}")
         return
 
-    client.dump_settings("config/session.json")
+    client.dump_settings(session_file)
     print(f"Logging in with user: {username}")
 
 
