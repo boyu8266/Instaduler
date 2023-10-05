@@ -4,9 +4,9 @@ from pydantic import BaseModel
 
 
 class Post(BaseModel):
-    paths: List[str]
+    files: List[str]
     caption: str
 
 
 class PostList(BaseModel):
-    posts: List[Post]
+    posts: List[Post] = None

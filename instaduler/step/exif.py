@@ -24,8 +24,9 @@ class ExifOrientation(Step):
         return image
 
     def run(self, state: InstaState, pipeline_abort: Callable[[], None] | None = None, **kwargs: Any) -> InstaState:
-        for file in state.files:
-            image = self.read_image_with_exif_rotation(file)
+        for file in state.post.files:
             with contextlib.suppress(Exception):
+                image = self.read_image_with_exif_rotation(file)
                 image.save(file)
+
         return state

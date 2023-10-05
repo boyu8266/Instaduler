@@ -1,15 +1,14 @@
-from typing import List
-
 from instagrapi import Client
 from tpdp import State
+
+from instaduler.model import Post
 
 
 class InstaState(State):
     session_file: str = 'config/session.json'
     client: Client = None
 
-    folder: str = None
-    files: List[str] = None
+    post: Post = None
 
     class Config:
         arbitrary_types_allowed = True
