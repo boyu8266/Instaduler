@@ -3,11 +3,9 @@ import glob
 import json
 import os
 
+from const import *
 from instagrapi import Client
 from model import Post, PostList
-
-schedule_file = 'config/schedule.json'
-session_file = 'config/session.json'
 
 
 def login(username, password):
@@ -17,7 +15,7 @@ def login(username, password):
         print(f"Login failed: {username}")
         return
 
-    client.dump_settings(session_file)
+    client.dump_settings(SESSION_FILE)
     print(f"Logging in with user: {username}")
 
 
@@ -32,7 +30,7 @@ def post(folder, text):
     post = Post(files=files, caption=text)
 
     try:
-        postlist = PostList.parse_file(schedule_file)
+        postlist = PostList.parse_file(SCHEDULE_FILE)
     except:
         postlist = PostList()
 
@@ -41,7 +39,7 @@ def post(folder, text):
             postlist.posts = []
 
         postlist.posts.append(post)
-        with open(schedule_file, 'w', encoding='utf-8') as file:
+        with open(SCHEDULE_FILE, 'w', encoding='utf-8') as file:
             json.dump(postlist.dict(), file, ensure_ascii=False, indent=4)
         print(f"Post from folder: {folder}, with caption: {text}")
     except:
