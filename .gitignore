@@ -1,7 +1,4 @@
-config/session.json
-
-# resource
-/images
-/videos
+/config
+/resources
 
 __pycache__
