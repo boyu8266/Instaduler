@@ -2,7 +2,8 @@ from typing import List
 
 from pydantic import BaseModel
 
-from instaduler.const import ALBUM
+ALBUM = 'ALBUM'
+REELS = 'REELS'
 
 
 class Post(BaseModel):
