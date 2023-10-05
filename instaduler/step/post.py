@@ -1,9 +1,8 @@
 from typing import Any, Callable
 
 from instagrapi import Client
+from state import InstaState
 from tpdp import Step
-
-from instaduler.state import InstaState
 
 
 class PostAlbum(Step):

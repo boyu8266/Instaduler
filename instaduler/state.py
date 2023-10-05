@@ -1,7 +1,6 @@
 from instagrapi import Client
+from model import Post
 from tpdp import State
-
-from instaduler.model import Post
 
 
 class InstaState(State):
