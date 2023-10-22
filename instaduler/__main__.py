@@ -29,7 +29,10 @@ def post(folder, text):
     files = glob.glob(os.path.join(folder, "*.jpg")) + \
         glob.glob(os.path.join(folder, "*.jpeg")) + \
         glob.glob(os.path.join(folder, "*.mp4"))
-    post = Post(files=files, caption=text)
+    try:
+        post = Post(files=sorted(files), caption=text)
+    except:
+        pass
 
     try:
         postlist = PostList.parse_file(SCHEDULE_FILE)
