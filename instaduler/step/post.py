@@ -38,21 +38,27 @@ class PostReels(Step):
 
         try:
             track_to_post = None
+            
+            if state.post.track_query == None:
+                state.client.clip_upload(
+                    state.post.files[0],
+                    state.post.caption,
+                )
+            else:
+                tracks = self.custom_search_music(state.client, state.post.track_query)
+                for track in tracks:
+                    if track.audio_asset_id != state.post.track_id:
+                        continue
 
-            tracks = self.custom_search_music(state.client, state.post.track_query)
-            for track in tracks:
-                if track.audio_asset_id != state.post.track_id:
-                    continue
+                    track.highlight_start_times_in_ms = state.post.track_highlight_start_times_in_ms
+                    track_to_post = track
+                    break
 
-                track.highlight_start_times_in_ms = state.post.track_highlight_start_times_in_ms
-                track_to_post = track
-                break
-
-            state.client.clip_upload_as_reel_with_music(
-                state.post.files,
-                state.post.caption,
-                track_to_post
-            )
+                state.client.clip_upload_as_reel_with_music(
+                    state.post.files[0],
+                    state.post.caption,
+                    track_to_post
+                )
         except:
             pipeline_abort = True
         return state
