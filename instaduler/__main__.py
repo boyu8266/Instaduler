@@ -5,6 +5,7 @@ import os
 
 from instagrapi import Client
 
+from instaduler import newlogfile
 from instaduler.const import *
 from instaduler.model import Post, PostList
 from instaduler.pipeline import InstaPipeline
@@ -96,4 +97,5 @@ def main():
 
 
 if __name__ == "__main__":
+    newlogfile()
     main()

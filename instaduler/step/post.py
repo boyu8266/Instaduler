@@ -1,7 +1,9 @@
+import traceback
 from typing import Any, Callable
 
 from instagrapi import Client
 from instagrapi.extractors import extract_track
+from logging_service import LoggingService
 from tpdp import Step
 
 from instaduler.model.post import ALBUM, REELS
@@ -38,7 +40,7 @@ class PostReels(Step):
 
         try:
             track_to_post = None
-            
+
             if state.post.track_query == None:
                 state.client.clip_upload(
                     state.post.files[0],
@@ -60,5 +62,6 @@ class PostReels(Step):
                     track_to_post
                 )
         except:
+            LoggingService().err(traceback.format_exc())
             pipeline_abort = True
         return state
