@@ -41,7 +41,7 @@ class PostReels(Step):
         try:
             track_to_post = None
 
-            if state.post.track_query == None:
+            if state.post.track_query == None or len(state.post.track_query) == 0:
                 state.client.clip_upload(
                     state.post.files[0],
                     state.post.caption,
